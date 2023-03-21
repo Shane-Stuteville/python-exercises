@@ -107,32 +107,67 @@ while i < 1000000:
         iv. Write a while loop that that starts at 100 and subtracks 5 each time until 5 is reached and stop. Print output on each line starting at 
         100 showing each subtraction until the end.
 '''
+i = 100
+while i >= 5:
+    print(i)
+    i -= 5
+
 
 '''
     b. For Loops
         i.  Write some code using a for loop that prompts the user for a number, then shows a multiplication table up through 10 for that number.
 '''
+number = int(input("Enter a number: "))
+
+for i in range(1, 11):
+    result = number * i
+    print(f"{number} x {i} = {result}")
+
 
 '''
         ii.  Create a for loop that prints itself by its value upto and includeing 9. For example, line one is 1, line two is 22, line three is 333,
         and so on through nine 9's on line nine.
 '''
+for i in range(1, 10):
+    print(str(i) * i)
 
 '''
     c. break and continue
         i.  Write a program that prompts the user for a positive integer. Next write a loop that prints out the numbers from the number the user 
         entered down to 1.
 '''
+number = int(input("Enter a positive integer: "))
+
+while number >= 1:
+    print(number)
+    number -= 1
+
 
 '''
         ii. The input function can be used to prompt for input and use that input in your python code. Prompt the user to enter a postive number
         and write a loop that counts from 0 to that number. 
 '''
+number = int(input("Enter a positive number: "))
+
+for i in range(number + 1):
+    print(i)
+
 
 '''
         iii. Prompt the user for an odd number between 1 and 50. Use a loop and a break statement to continue prompting the user if they enter
         invalid input. Use a loop and the continue statement to output all the odd numbers between 1 and 50, except for the number the user entered. 
 '''
+while True:
+    number = int(input("Enter an odd number between 1 and 50: "))
+    if number >= 1 and number <= 50 and number % 2 == 1:
+        break
+    print("Invalid input. Please try again.")
+
+for i in range(1, 51, 2):
+    if i == number:
+        continue
+    print(i)
+
 
 '''
 3. Fizzbuzz
@@ -149,6 +184,26 @@ while i < 1000000:
         multiple of three print 'Fizz' in addition to the number. For every number generated that is a multiple of five print 'Buzz' in addition to
         the number. For every number generated that is a multiple of both three and five print'FizzBuzz'.
 '''
+import random
+import time
+
+while True:
+    # Generate a random number from 1-100
+    number = random.randint(1, 100)
+    # Check if the number is a multiple of both three and five
+    if number % 3 == 0 and number % 5 == 0:
+        print("FizzBuzz")
+    # Check if the number is a multiple of three
+    elif number % 3 == 0:
+        print("Fizz")
+    # Check if the number is a multiple of five
+    elif number % 5 == 0:
+        print("Buzz")
+    else:
+        print(number)
+    # Wait for one second before printing the next number
+    time.sleep(1)
+
 
 '''
 4. Display a table of powers.
@@ -159,5 +214,18 @@ while i < 1000000:
     Assume that the user will enter valid data
     Only continue if the user agrees to 
 
-    Write python version 3 code that asks the user for an integer. Take the integer and place it in the first column called 'number'. Take the 
+    Write python version 3 code that asks the user for an integer user_integer. Take the user_integer and place it in the first column called 'number'. 
+    Take the user_integer and square it for squared_integer and place it in the second column called 'squared'. Then, take the user_integer and cube it 
+    for cubed_integer and place it in the third column called 'cubed'. Finally, ask the user to enter a another integer and repeat the process until the 
+    user enters q or quit.
 '''
+while True:
+    user_input = input("Enter an integer or 'q' to quit: ")
+    if user_input == 'q' or user_input == 'quit':
+        break
+    user_integer = int(user_input)
+    squared_integer = user_integer ** 2
+    cubed_integer = user_integer ** 3
+    print("number: ", user_integer)
+    print("squared: ", squared_integer)
+    print("cubed: ", cubed_integer)
